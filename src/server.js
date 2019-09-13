@@ -10,19 +10,25 @@ const onRequest = (request, response) => {
 
     switch (request.url) {
         case '/':
-            htmlHandler.getIndex(request, response);
+            htmlHandler.getPageOne(request, response);
             break;
         case '/party.mp4':
             mediaHandler.getParty(request, response);
             break;
-        case '/page2':
+        case '/bling.mp3':
             mediaHandler.getBling(request, response);
             break;
-        case '/page3':
+        case '/bird.mp4':
             mediaHandler.getBird(request, response);
             break;
+        case '/page2':
+            htmlHandler.getPageTwo(request, response);
+            break;
+        case '/page3':
+            htmlHandler.getPageThree(request, response);
+            break;
         default:
-            htmlHandler.getIndex(request, response);
+            htmlHandler.getPageOne(request, response);
             break;
     }
 };
