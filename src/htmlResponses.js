@@ -23,7 +23,7 @@ const getPageThree = (request, response) => {
 };
 
 
-
+module.exports.getIndex = getIndex;
 module.exports.getPageOne = getPageOne;
 module.exports.getPageTwo = getPageTwo;
 module.exports.getPageThree = getPageThree;
