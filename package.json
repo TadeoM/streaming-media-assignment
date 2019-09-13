@@ -9,7 +9,7 @@
     "main": "./src/server.js",
     "scripts": {
         "start": "node ./src/server.js",
-        "pretest": "eslint ./src/server.js",
+        "pretest": "eslint ./src --fix",
         "test": "echo \"No Tests\""
     },
     "repository": {
