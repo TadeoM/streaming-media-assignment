@@ -12,7 +12,9 @@ const loadFile = (request, response, filename, mediaType) => {
       }
       return response.end(err);
     }
-    let { range } = request.headers;
+    let {
+      range,
+    } = request.headers;
     // console.log(request);
 
     if (!range) {
@@ -20,7 +22,7 @@ const loadFile = (request, response, filename, mediaType) => {
     }
 
     const positions = range.replace(/bytes=/, '').split('-');
-    console.dir(`PRINTING : ${parseInt(positions[0], 10)}`);
+    console.dir(`PRINTING : ${positions}`);
 
     let start = parseInt(positions[0], 10);
 
