@@ -12,9 +12,7 @@ const loadFile = (request, response, filename, mediaType) => {
       }
       return response.end(err);
     }
-    let {
-      range,
-    } = request.headers;
+    let { range } = request.headers;
     // console.log(request);
 
     if (!range) {
@@ -36,18 +34,13 @@ const loadFile = (request, response, filename, mediaType) => {
     const chunksize = (end - start) + 1;
 
     response.writeHead(206, {
-      'Content--Range': `byte ${start}-${end}/${total}`,
+      'Content-Range': `bytes ${start}-${end}/${total}`,
       'Accept-Ranges': 'bytes',
-      'Content-Lenngth': chunksize,
+      'Content-Length': chunksize,
       'Content-Type': mediaType,
     });
 
-        response.writeHead(206, {
-            'Content-Range': `bytes ${start}-${end}/${total}`,
-            'Accept-Ranges': 'bytes',
-            'Content-Length': chunksize,
-            'Content-Type': mediaType,
-        });
+    const stream = fs.createReadStream(file, { start, end });
 
     stream.on('open', () => {
       stream.pipe(response);
