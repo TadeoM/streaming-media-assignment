@@ -19,7 +19,7 @@ const loadFile = (request, response, filename, mediaType) => {
         //console.log(request);
 
         if (!range) {
-            range = 'byte=0-';
+            range = 'bytes=0-';
         }
 
         const positions = range.replace(/bytes=/, '').split('-');
